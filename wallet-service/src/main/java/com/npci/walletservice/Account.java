@@ -3,16 +3,16 @@ package com.npci.walletservice;
 public class Account {
 
     // properties that represent account details
-    private long account;
+    private long accountNumber;
     private double balance;
     private String port;
 
-    public long getAccount() {
-        return account;
+    public long getAccountNumber() {
+        return accountNumber;
     }
 
-    public void setAccount(long account) {
-        this.account = account;
+    public void setAccountNumber(long accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public double getBalance() {

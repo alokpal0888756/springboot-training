@@ -28,6 +28,7 @@ public class WalletService {
         return wallet;
     }
 
+
     // fallback method that is automatically executed if the remote service is down
     public Wallet getAccount2(long accountNumber, Throwable throwable){
         System.out.println("________Fallback:method: Alternate response_________");

@@ -20,4 +20,5 @@ public class WalletController {
     public ResponseEntity<Wallet> getAccountDetails(@PathVariable long accountNumber){
         return ResponseEntity.status(200).body(walletService.getAccountDetails(accountNumber));
     }
+
 }
