@@ -1,5 +1,7 @@
 package com.npci.accountservice;
 
+import com.npci.accountservice.repo.AccountRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,9 @@ public class AccountController {
     @Value("${server.port}")
     private String port;
 
+    @Autowired
+    private AccountRepository repository;
+
 
 
     @GetMapping("/{accountNumber}")
@@ -29,5 +34,10 @@ public class AccountController {
         map.put("port", port);
         return ResponseEntity.status(200).body(map);
 
+    }
+
+    @GetMapping("getAll")
+    public ResponseEntity<Object> getAll(){
+        return ResponseEntity.status(200).body(repository.findAll());
     }
 }

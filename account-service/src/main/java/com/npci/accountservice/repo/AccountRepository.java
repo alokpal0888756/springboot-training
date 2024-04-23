@@ -1,9 +1,9 @@
-package com.npci.accountservice;
+package com.npci.accountservice.repo;
 
 import com.npci.accountservice.model.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface repo extends JpaRepository<Account, Long> {
+public interface AccountRepository extends JpaRepository<Account, Long> {
 }
