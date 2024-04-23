@@ -17,11 +17,6 @@ public class AccountController {
     @Value("${server.port}")
     private String port;
 
-    @Value("${database.username}")
-    private String username;
-
-    @Value("${database.password}")
-    private String password;
 
 
     @GetMapping("/{accountNumber}")
@@ -32,8 +27,6 @@ public class AccountController {
         map.put("account", accountNumber);
         map.put("balance", balance);
         map.put("port", port);
-        map.put("username", username);
-        map.put("password", password);
         return ResponseEntity.status(200).body(map);
 
     }
