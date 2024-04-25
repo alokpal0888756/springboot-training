@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>Learning Js for React</h1>
+    <button onclick="increment()">+</button>
+    <button onclick="decrement()">-</button>
+    <div id="a"></div>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+        let name = "alok"
+        // directly display the content
+        document.write('<p> Name = '+name +'</p>');
+        // using template string to avoid concatination
+        document.write(`<p>Name = ${name}</p>`);
+
+        class Employee {
+            
+            constructor(id, name, salary){
+                this.id = id; // property of object
+                this.name = name;
+                this.salary = salary;
+            }
+            // a function inside the class must be created without function keyword
+            display (){
+                document.write(`<p>Id = ${this.id}, Name = ${this.name}, Salary = ${this.salary} </p>`)
+            }
+        }
+        // creating the object using new keyword
+        let employee1 = new Employee(200, 'Ajay', 4343434)
+        let employee2 = new Employee(200, 'sujay', 4343434)
+        employee1.display();
+        employee2.display();
+
+        let items = [2,3,4,5,1,6]
+
+        document.write(`<h1>Traditional for loop </h1>`)
+
+        // traditional loop, forEach and map function
+        for(let i=0;i<items.length;i++){
+            document.write(`<p>Items at ${i} is ${items[i]}</p>`)
+        }
+
+        document.write(`<h1>Callback functions or forEach</h1>`)
+
+        // callback functions or forEach
+        items.forEach(function(item, index) {
+            document.write(`<p>Items at ${index} is ${item}</p>`)
+        });
+
+        document.write(`<h1>Map Iteration</h1>`)
+
+        // now arr2 iterates but generates/return a new array: map(callbackfn): callback(item, index)
+        let arr2 = items.map(function(item, index){
+            return item + (item * 0.1);
+        });
+
+        arr2.forEach(function(item, index) {
+            document.write(`<p>Items at ${index} is ${item} after 10% increment</p>`)
+        });
+
+
+
+        document.write(`<h1>Arrow Funcation</h1>`)
+        let someMoreItems = items.map((value, index) => value+10)
+
+        someMoreItems.forEach((item, index) => {
+            item = item*99
+            document.write(`<p>Items at ${index} is ${item}</p>`)
+        })
+    
+        document.write(`<h1>String Padding</h1>`)
+        let random = Math.ceil(Math.random() * 1000);
+        document.write(`<p>Random number: ${random}</p>`)
+        let otp4digit = random.toString().padStart(4, '*') // we can replace anything from * 
+        let otp6digit = random.toString().padEnd(6, '*')
+        document.write(`Otp4digit ${otp4digit},, Otp6digit ${otp6digit}`)
+
+        let num = "9876543210";
+        document.write(`<p>${num.slice(6, num.length).padStart(10, "X")}</p>`)
+
+        let userArray = [
+            {id: 1, name: "Ajay", address: {state: 'ut', city: 'luck'}},
+            {id: 2, name: "Sujay"},
+            {id: 3, name: "c", address: {state: 'ut', city: 'luck'}}
+        ]
+        userArray.forEach((user, index) => {
+            
+            document.write(`<p>Name = ${user.name}, State = ${user.address?.state != undefined ? user.address?.state: 'NP'}</p>`)})
+    </script>
+
+
+</body>
+</html>
