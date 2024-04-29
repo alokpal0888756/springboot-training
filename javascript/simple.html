@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Getting the data from backed</h1>
+    <input type="text" id="a">
+    <button onclick="getUsers3()">Fetch</button>
+    <div id="b"></div>
+    <script type="text/javascript">
+
+        function getUsers(){
+            // 1st approach - XMLHttpRequest 
+            let xhr = new XMLHttpRequest();
+            let userId = document.getElementById('a').value;
+            let URL = `https://jsonplaceholder.typicode.com/users/${userId}`;
+            // initialize the request 
+            xhr.open('GET', URL);
+            xhr.send();
+            xhr.onreadystatechange = () => {
+                if(xhr.readyState == 4){
+                    document.getElementById('b').innerHTML = xhr.responseText;
+                 }
+            }
+        }
+
+        function getUsers2(){
+            let userId = document.getElementById('a').value;
+            let URL = `https://jsonplaceholder.typicode.com/users/${userId}`;
+            fetch(URL).then(response => response.json()).then(json => document.getElementById('b').innerHTML = json.username)
+            fetch(URL).then(response => console.log("inside check"))
+            console.log("outside check")
+        }
+        async function getUsers3(){
+            let userId = document.getElementById('a').value;
+            let URL = `https://jsonplaceholder.typicode.com/users/${userId}`;
+            let res = await fetch(URL)
+            let js = await res.json();
+            document.getElementById('b').innerHTML = js.username
+
+        }
+
+    </script>
+</body>
+</html>
